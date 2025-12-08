@@ -1,0 +1,8 @@
+[Unit]
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swayidle -w timeout 300 '%h/Scripts/swaylock.sh' timeout 301 'niri msg action power-off-monitors' unlock 'notify-send "已解锁"' before-sleep '%h/Scripts/swaylock.sh'
+Restart=on-failure

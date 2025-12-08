@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer to change wallpaper every 5 minutes
+
+[Timer]
+OnBootSec=30
+OnUnitActiveSec=1800
+
+[Install]
+WantedBy=default.target

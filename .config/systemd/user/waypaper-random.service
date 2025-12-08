@@ -1,0 +1,5 @@
+[Unit]
+Description=Random Wallpaper via Waypaper
+
+[Service]
+ExecStart=/usr/bin/waypaper --random
