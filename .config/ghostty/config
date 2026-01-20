@@ -43,12 +43,13 @@
 # resize-overlay-duration = 4s 200ms
 
 font-family = "UbuntuMono Nerd Font"
+# font-family = "Maple Mono"
 font-family = "LXGW WenKai Mono Screen"
 font-size = 14
-theme = Catppuccin Macchiato
+# theme = Catppuccin Macchiato
 # 光污染选项
 # custom-shader = shaders/glow.glsl
-# theme = Catppuccin Mocha
+theme = Catppuccin Mocha
 
 shell-integration-features = no-cursor
 cursor-style = block
@@ -57,7 +58,7 @@ cursor-text = #505050
 cursor-color = #A7CEFA
 mouse-hide-while-typing = true
 
-background-opacity = 0.95
+# background-opacity = 0.95
 keybind = ctrl+alt+r=reload_config
 
 # 关闭标题栏

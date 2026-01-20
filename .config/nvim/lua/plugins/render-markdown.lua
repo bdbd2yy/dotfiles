@@ -1,0 +1,36 @@
+return {
+  "MeanderingProgrammer/render-markdown.nvim",
+  opts = {
+    code = {
+      sign = false,
+      style = "language",
+      width = "block",
+      right_pad = 1,
+    },
+    heading = {
+      enabled = true,
+      render_modes = false,
+      atx = true,
+      setext = true,
+      sign = false,
+      icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+      position = "overlay",
+      signs = { "󰫎 " },
+      width = "block",
+      left_pad = 2,
+      right_pad = 4,
+      min_width = 30,
+      border = false,
+      border_virtual = false,
+      border_prefix = false,
+      above = "▄",
+      below = "▀",
+    },
+    checkbox = {
+      enabled = true,
+      unchecked = { icon = "✘ " },
+      checked = { icon = "✔ ", scope_highlight = "@markup.strikethrough" },
+      custom = { todo = { rendered = "◯ " } },
+    },
+  },
+}
