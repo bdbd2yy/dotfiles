@@ -1,6 +1,6 @@
 # [ Global Config ]
 # max no of notification in buffer
-max-history=5
+max-history=10
 
 # arrange notification ( +/- time or +/- priority )
 sort=+time
@@ -11,7 +11,7 @@ sort=+time
 
 on-button-left=invoke-default-action
 on-button-middle=dismiss-group
-on-button-right=exec makoctl menu -n "$id" rofi -p 'Select action: ' -dmenu
+on-button-right=exec sh -c 'makoctl history | grep "^Notification" | sed "s/^Notification [0-9]\\+: //" | rofi -dmenu -p "Notifications"'
 on-touch=invoke-default-action
 on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
@@ -88,6 +88,7 @@ layer=top
 anchor=top-right
 
 group-by=app-name
+
 # Colors
 
 background-color=#24273a
@@ -104,13 +105,6 @@ border-color=#f5a97f
 on-notify=none
 on-button-right=exec blueman-manager
 
-[summary~=.*壁纸已更换.*]
-on-button-right=exec $HOME/Scripts/wallpaperloop.sh
-
-[app-name=clipcatd]
-ignore-timeout=1
-default-timeout=800
-on-button-left=exec clipcat-menu
-on-button-middle=exec clipcatctl clear
-on-button-right=dismiss
-on-touch=invoke-default-action
+[mode=quiet!]
+invisible=1
+on-notify=none
