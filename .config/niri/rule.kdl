@@ -8,15 +8,7 @@
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 
-// 放进overview里的壁纸程序
-layer-rule{
-    match namespace="hyprpaper"
-    match namespace="wallpaper"
-    match namespace="awww-daemon"
-    match namespace="swww-daemonoverview"
-    place-within-backdrop true
-}
-
+// general window rule
 window-rule {
     geometry-corner-radius 5
     // 去除超出圆角的窗口内容
@@ -61,22 +53,19 @@ recent-windows {
 
 // --------- floating windows -----------
 window-rule {
-    match app-id=r#"satty|dolphin|org.pulseaudio.pavucontrol|anki|ark|blueman-manager|waypaper|nm-connection-editor|org.gnome.Nautilus"#
+    match app-id=r#"satty|dolphin|org.pulseaudio.pavucontrol|ark|blueman-manager|nm-connection-editor|org.gnome.Nautilus"#
+    match app-id=r#".prismlauncher."# title=r#".控制台窗口."#
+    match app-id=r#".kdeconnect.daemon$"# title=r#"^sending.kde connect daemon$"#
+    match app-id="thunar"
+    match app-id="steam" title="Friends List"
+    match title="Steam 设置"
+    match title="媒体查看器"
+    // for qq and wechat
+    match title="图片查看器"
+    match title="图片和视频"
+    match title="群聊的聊天记录"
+    match title="聊天记录"
     open-floating true
-    // default-column-width { fixed 1157; }
-    // default-window-height { fixed 736; }
-}
-
-window-rule {
-  match app-id=r#".prismlauncher."#
-  match title=r#".控制台窗口."#
-  open-floating true
-}
-
-window-rule {
-  match app-id=r#".kdeconnect.daemon$"#
-  match title=r#"^sending.kde connect daemon$"#
-  open-floating true
 }
 
 window-rule {
@@ -85,45 +74,17 @@ window-rule {
     default-column-width { fixed 800; }
     default-window-height { fixed 800; }
 }
-// --------- maximized windows -----------
-window-rule {
-    match app-id=r#"firefox-nightly|neovide|code|SiYuan|clash-verge|org.telegram.desktop|org.kde.kdeconnect.app|^jetbrains|com.obsproject.Studio|google-chrome"#
-    open-maximized true
-}
-
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"^firefox."# title="^Picture-in-Picture$"
-    open-floating true
-    open-focused false
-    default-column-width { fixed 759; }
-    default-window-height { fixed 427; }
-    default-floating-position x=100 y=100 relative-to="bottom-left"
-}
-
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match title="媒体查看器"
-    open-floating true
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-    // match app-id=r#"firefox-nightly"#
-    match app-id=r#"QQ"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
+  // This app-id regular expression will work for both:
+  // - host Firefox (app-id is "firefox")
+  // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+  match app-id=r#"^firefox."# title="^Picture-in-Picture$"
+  open-floating true
+  open-focused false
+  default-column-width { fixed 759; }
+  default-window-height { fixed 427; }
+  default-floating-position x=100 y=100 relative-to="bottom-left"
 }
 
 window-rule {
@@ -138,18 +99,27 @@ window-rule {
     default-window-height { fixed 736; }
 }
 
+// --------- maximized windows -----------
 window-rule {
-    match app-id="com.mitchellh.ghostty" is-active=true
-    // match is-focused=true
-    geometry-corner-radius 10
-    clip-to-geometry true
-    opacity 0.95
-    shadow {
-      on
-      color "#87CEEB70"
-    }
+    match app-id=r#"firefox-nightly|neovide|code|SiYuan|clash-verge|org.telegram.desktop|org.kde.kdeconnect.app|^jetbrains|com.obsproject.Studio|google-chrome"#
+    open-maximized true
 }
 
+// --------- block out sensitive windows -----------
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    // match app-id=r#"firefox-nightly"#
+    match app-id=r#"QQ"#
+
+    block-out-from "screen-capture"
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// --------- windows on workspace -----------
 window-rule {
     match app-id=r#"firefox-nightly"#
     open-on-workspace "browser"
@@ -171,4 +141,23 @@ window-rule {
     match app-id=r#"(?i).*siyuan.*|.*okular.*|.*wps.*"#
     open-on-workspace "write"
     open-maximized true
+}
+
+// --------- others -----------
+window-rule {
+    match app-id="com.mitchellh.ghostty" is-active=true
+    // match is-focused=true
+    geometry-corner-radius 10
+    clip-to-geometry true
+    opacity 0.95
+    shadow {
+      on
+      color "#87CEEB70"
+    }
+}
+
+// 放进overview里的壁纸程序
+layer-rule{
+    match namespace="swww-daemonoverview"
+    place-within-backdrop true
 }

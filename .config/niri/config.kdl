@@ -12,6 +12,7 @@ environment {
     XMODIFIERS "@im=fcitx"
     // qt主题
     QT_QPA_PLATFORMTHEME "qt6ct"
+    XDG_MENU_PREFIX "arch-"
     // GTK软件使用的渲染器，可以解决n卡双显卡导致的GTK应用启动缓慢问题，AMD或Intel单显卡不需要这行设置可以注释掉
     GSK_RENDERER "gl"
     // 默认文本编辑器
@@ -109,10 +110,6 @@ cursor {
 }
 
 overview {
-	// 关闭overview里的工作区阴影，配合layout里面的透明工作区背景可以做到让工作区和overview共用同一个背景。在意内存占用的可以把waypaper的后端改成swaybg,然后关闭桌面自动模糊功能，取消swww自动启动，能节省250MB左右内存
-	workspace-shadow {
-	//off
-	}
 	//缩放
 	zoom 0.5
 }
@@ -281,7 +278,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
 // spawn-sh-at-startup "dunst &"
-spawn-at-startup "mako"
+// spawn-at-startup "mako"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "niriswitcher"
 // spawn-at-startup "niri-switch-daemon"
@@ -293,11 +290,12 @@ spawn-at-startup "fcitx5"
 spawn-at-startup  "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup  "gnome-keyring-daemon --start --components=secrets"
 // spawn-sh-at-startup  "$HOME/Scripts/wallpaperloop.sh"
+spawn-sh-at-startup  "$HOME/.local/bin/swww-dual"
 spawn-at-startup "swww-daemon"
 // swww-daemon for overview wallpaper
 spawn-at-startup "swww-daemon" "-n" "overview"
 // waypaper to set wallpaper randomly
-spawn-at-startup "waypaper" "--random"
+// spawn-at-startup "waypaper" "--random"
 // cliphist
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 // user xremap to remap keys
