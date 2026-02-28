@@ -1,0 +1,8 @@
+[services.aliyun-vps]
+type     = "sftp"
+host     = "47.112.190.71"
+user     = "bdbd"
+port     = 22
+key_file = "~/.ssh/id_ed25519"
+# If your private key is protected by a passphrase:
+# key_passphrase = "my_passphrase"

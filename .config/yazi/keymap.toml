@@ -7,6 +7,26 @@ on   = [ "g", "p" ]
 run  = "cd ~/Pictures"
 desc = "Cd to ~/Pictures"
 
+[[mgr.prepend_keymap]]
+on   = [ "g", "o" ]
+run  = "cd ~/1Plus/"
+desc = "Cd to your phone"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /run/media/bdbd"
+desc = "Cd to mounted media"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "D" ]
+run  = "cd ~/Documents"
+desc = "Cd to Documents"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "s" ]
+run  = "cd sftp://aliyun-vps"
+desc = "Go to my-server"
+
 [[mgr.append_keymap]]
 on   = "q"
 run  = "escape"
@@ -21,9 +41,7 @@ run  = "escape"
 
 [[mgr.prepend_keymap]]
 on = "<C-p>"
-run = '''
-shell 'dragon-drop -x -T -i "$1"' --confirm
-'''
+run = "shell -- ripdrag %s -x 2>/dev/null &"
 
 [[mgr.prepend_keymap]]
 on   = [ "c", "a", "a" ]
@@ -74,3 +92,16 @@ desc = "Chmod on selected files"
 on   = [ "c", "k", "s" ]
 run  = "plugin kdeconnect-send"
 desc = "Send selected files via KDE Connect"
+
+[[mgr.prepend_keymap]]
+on   = "!"
+for  = "unix"
+run  = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
+
+# If you also using Yazi on Windows:
+[[mgr.prepend_keymap]]
+on   = "!"
+for  = "windows"
+run  = 'shell "powershell.exe" --block'
+desc = "Open PowerShell here"
