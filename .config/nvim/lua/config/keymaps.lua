@@ -5,10 +5,10 @@
 local map = vim.keymap.set
 local unmap = vim.keymap.del
 
-map({"i", "v"}, "jk", "<Esc>", { noremap = true, silent = true })
-map({"v"}, "q", "<Esc>", { noremap = true, silent = true })
-map({"t"}, "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
-map({"t"}, "jk", "<C-\\><C-n>", { noremap = true, silent = true })
+-- map({ "i", "v" }, "jk", "<Esc>", { noremap = true, silent = true })
+map({ "v" }, "q", "<Esc>", { noremap = true, silent = true })
+map({ "t" }, "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+-- map({ "t" }, "jk", "<C-\\><C-n>", { noremap = true, silent = true })
 unmap("n", "<leader><space>", { desc = "Find Files (root dir)" })
 
 -- toggle color between 雷姆蓝 and 拉姆粉
@@ -26,15 +26,9 @@ map("n", "<leader><leader>t", function()
   toggle_color()
 end, { desc = "Toggle gui cursor color" })
 
--- 
+--
 if vim.g.neovide then
   vim.keymap.set({ "n", "v" }, "<c-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
   vim.keymap.set({ "n", "v" }, "<c-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
   vim.keymap.set({ "n", "v" }, "<c-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
 end
-
--- toggleterm
-map("n", "<leader>th", "<cmd>ToggleTerm size=15 direction=horizontal<cr>", { desc = "ToggleTerm horizontal split" })
-map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "ToggleTerm float" })
--- map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", { desc = "ToggleTerm float" })
-map("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "ToggleTerm vertical split" })

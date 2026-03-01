@@ -50,10 +50,10 @@ if status is-interactive
     alias la="eza --color=always --icons=always --git --group-directories-first -lha"
     alias tm="tmux"
     alias tmm="tmux new -A -s main"
-    # make sure you have installed aichat and create the role suzume
-    alias szm="aichat -r suzume -m openrouter:deepseek/deepseek-chat-v3-0324"
-    alias szmg="aichat -r suzume -m openrouter:google/gemini-2.5-pro"
     alias archwiki="xdg-open /usr/share/doc/arch-wiki-zh-cn/html/zh-cn/首页.html"
+    alias lg="lazygit"
+    alias ff="fastfetch"
+    alias oc="opencode"
     # if type -q swallow
     #   alias code="swallow code --wait"
     #   alias nv="swallow neovide"
@@ -84,7 +84,6 @@ if status is-interactive
 end
 
 set -Ux EDITOR nvim
-set -Ux LANG zh_CN.UTF-8
 
 bind \co accept-autosuggestion
 

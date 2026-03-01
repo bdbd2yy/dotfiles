@@ -13,7 +13,5 @@
 	defaultBranch = main
 [pull]
 	rebase = false
-[https]
-	proxy = http://127.0.0.1:7897
-[http]
-	proxy = http://127.0.0.1:7897
+[url "https://ghfast.top/https://github.com/"]
+	insteadOf = https://github.com/
