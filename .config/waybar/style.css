@@ -648,3 +648,154 @@
   background: #FFB6C1;
   color: #292c3c;
 }
+
+/* Claude Code Usage Monitor Styling */
+#custom-claude-usage {
+  padding: 0 8px;
+  margin: 0 4px;
+  border-radius: 4px;
+  background: transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect: show clickable */
+#custom-claude-usage:hover {
+  background: rgba(222, 115, 86, 0.15);
+}
+
+/* Color-coded by usage level */
+#custom-claude-usage.claude-low {
+  color: #a6e3a1;  /* Green: low usage (0-49%) */
+}
+
+#custom-claude-usage.claude-mid {
+  color: #f9e2af;  /* Yellow: medium usage (50-79%) */
+}
+
+#custom-claude-usage.claude-high {
+  color: #f38ba8;  /* Red: high usage (80-99%) */
+}
+
+/* OpenAI Codex CLI Usage Monitor Styling */
+#custom-codex-usage {
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  background: #292c3c;
+  color: @teal;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: @teal;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#custom-codex-usage:hover {
+  background: @teal;
+  color: #292c3c;
+}
+
+#custom-codex-usage.codex-low {
+  color: @green;
+  border-color: @green;
+}
+
+#custom-codex-usage.codex-low:hover {
+  background: @green;
+  color: #292c3c;
+}
+
+#custom-codex-usage.codex-mid {
+  color: @yellow;
+  border-color: @yellow;
+}
+
+#custom-codex-usage.codex-mid:hover {
+  background: @yellow;
+  color: #292c3c;
+}
+
+#custom-codex-usage.codex-high {
+  color: @maroon;
+  border-color: @maroon;
+}
+
+#custom-codex-usage.codex-high:hover {
+  background: @maroon;
+  color: #292c3c;
+}
+
+#custom-codex-usage.critical {
+  color: @red;
+  border-color: @red;
+}
+
+#custom-codex-usage.critical:hover {
+  background: @red;
+  color: #292c3c;
+}
+
+/* GitHub Copilot Usage Monitor Styling */
+#custom-copilot-usage {
+  padding: 0 8px;
+  margin: 0 4px;
+  border-radius: 4px;
+  background: transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#custom-copilot-usage:hover {
+  background: rgba(139, 92, 246, 0.15);
+}
+
+#custom-copilot-usage.copilot-low {
+  color: #a6e3a1;  /* Green: low usage (0-49%) */
+}
+
+#custom-copilot-usage.copilot-mid {
+  color: #f9e2af;  /* Yellow: medium usage (50-79%) */
+}
+
+#custom-copilot-usage.copilot-high {
+  color: #f38ba8;  /* Red: high usage (80-99%) */
+}
+
+/* OpenCode Zen Balance Monitor Styling */
+#custom-zen-balance {
+  padding: 0 8px;
+  margin: 0 4px;
+  border-radius: 4px;
+  background: transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#custom-zen-balance:hover {
+  background: rgba(116, 170, 156, 0.15);
+}
+
+/* Color-coded by balance level */
+#custom-zen-balance.zen-high {
+  color: #a6e3a1;  /* Green: good balance (> $10) */
+}
+
+#custom-zen-balance.zen-medium {
+  color: #f9e2af;  /* Yellow: getting low ($5-10) */
+}
+
+#custom-zen-balance.zen-low {
+  color: #f38ba8;  /* Red: critically low (< $5) */
+}
+
+/* Error state (network failures, auth errors, etc.) */
+#custom-claude-usage.critical,
+#custom-copilot-usage.critical,
+#custom-zen-balance.critical {
+  color: #ff5555;
+  background: rgba(255, 85, 85, 0.1);
+}

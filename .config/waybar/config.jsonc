@@ -1,35 +1,29 @@
 {
+  "height": 15,
   "include": [
     "modules.jsonc"
   ],
-  "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 15, // Waybar height (to be removed for auto height)
-  "reload_style_on_change": true,
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
+  "layer": "top",
+  "modules-center": [
+    "custom/music"
+  ],
   "modules-left": [
     "custom/powermenu",
     "niri/workspaces",
     "niri/window",
     "custom/polycat",
-    // "cava",
-    "group/tools",
-  ],
-  "modules-center": [
-    "custom/music"
+    "custom/codex-usage",
+    "group/tools"
   ],
   "modules-right": [
-    // "group/tools",
     "tray",
     "custom/weather",
     "pulseaudio",
     "network",
-    // "backlight",
-    // "group/ddcutil",
     "memory",
     "battery",
-    // "custom/lock",
     "clock"
   ],
+  "position": "top",
+  "reload_style_on_change": true,
 }

@@ -303,4 +303,22 @@
     "format": "󱋱",
     "tooltip": false,
   },
+  // "custom/claude-usage": {
+  //   "exec": "waybar-ai-usage claude --waybar",
+  //   "format": "{}",
+  //   "interval": 120,
+  //   "on-click": "pkill -RTMIN+8 waybar",
+  //   "return-type": "json",
+  //   "signal": 8,
+  //   "tooltip": true
+  // },
+  "custom/codex-usage": {
+    "exec": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%'",
+    "return-type": "json",
+    "interval": 120,
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%'",
+    "signal": 9
+  }
 }
