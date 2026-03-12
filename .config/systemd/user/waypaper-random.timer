@@ -1,5 +1,5 @@
 [Unit]
-Description=Timer to change wallpaper every 5 minutes
+Description=Timer to change wallpaper every 30 minutes
 
 [Timer]
 OnBootSec=30

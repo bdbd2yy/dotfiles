@@ -2,4 +2,4 @@
 Description=Random Wallpaper via Waypaper
 
 [Service]
-ExecStart=/usr/bin/waypaper --random
+ExecStart=%h/.config/waypaper/scripts/random-wallpaper-with-overview-sync.sh
