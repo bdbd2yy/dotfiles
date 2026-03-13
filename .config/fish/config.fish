@@ -56,22 +56,22 @@ end
 set -e MANPAGER
 set -e MANPAGEG
 if status is-interactive
-    # 交互模式下的别名
-    alias ex="exit"
-    alias cl="clear"
-    alias vi="nvim"
-    alias nv="neovide"
-    alias ls="eza --color=always --icons=always --git --group-directories-first"
-    alias la="eza --color=always --icons=always --git --group-directories-first -lha"
-    alias tm="tmux"
-    alias tmm="tmux new -A -s main"
-    alias archwiki="xdg-open /usr/share/doc/arch-wiki-zh-cn/html/zh-cn/首页.html"
-    alias lg="lazygit"
-    alias ff="fastfetch"
-    alias oc="opencode"
+    # 交互模式下的缩写
+    abbr --add ex exit
+    abbr --add cl clear
+    abbr --add vi nvim
+    abbr --add nv neovide
+    abbr --add ls "eza --color=always --icons=always --git --group-directories-first"
+    abbr --add la "eza --color=always --icons=always --git --group-directories-first -lha"
+    abbr --add tm tmux
+    abbr --add tmm "tmux new -A -s main"
+    abbr --add archwiki "xdg-open /usr/share/doc/arch-wiki-zh-cn/html/zh-cn/首页.html"
+    abbr --add lg lazygit
+    abbr --add ff fastfetch
+    abbr --add oc opencode
     # if type -q swallow
-    #   alias code="swallow code --wait"
-    #   alias nv="swallow neovide"
+    #   abbr --add code "swallow code --wait"
+    #   abbr --add nv "swallow neovide"
     # end
     # yazi 目录跳转
     function y
