@@ -16,6 +16,5 @@
 # yazi
 .config/yazi/flavors/*
 .config/yazi/plugins/*
-/.config/yazi/package.toml
 /.config/nvim/lazy-lock.json
 /.config/nvim/lazyvim.json

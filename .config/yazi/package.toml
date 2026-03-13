@@ -1,0 +1,39 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "9a52857"
+hash = "4fccaaf10c36dc2466e2438a386ff017"
+
+[[plugin.deps]]
+use = "KKV9/archive"
+rev = "c264639"
+hash = "e17c11b605d989568a1d1741ca17c584"
+
+[[plugin.deps]]
+use = "atareao/convert"
+rev = "ce060d9"
+hash = "1c0465351f2a344e842f065ab316f265"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "9a52857"
+hash = "8ad3e90b079190b4905f24a44f4ca06b"
+
+[[plugin.deps]]
+use = "Deepak22903/kdeconnect-send"
+rev = "5757a65"
+hash = "c23a7c129f3b972569414c8f2a5dd823"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "7ca66b4"
+hash = "d00cacddd5e4f58e2fb13aecae42d655"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "af8bdf4"
+hash = "43fa632820cc91919c4e713652140b48"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "3001521"
+hash = "8eabb4e88096f10905a6df62cfaadbf4"
