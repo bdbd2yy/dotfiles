@@ -20,5 +20,6 @@ Use [GNU Stow](https://www.gnu.org/software/stow/) to organize my dotfiles.
 - `fastfetch`
 - `xremap`
 - `zathura`
+- starship
 
 Just for my personal use :D

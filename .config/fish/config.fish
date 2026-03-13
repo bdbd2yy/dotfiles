@@ -1,37 +1,53 @@
 # 提示词设置
 function fish_greeting
     # 缓存文件存放位置
-    set cache_file ~/.cache/fish_daily_quote.txt
-    set today (date "+%Y-%m-%d")
+    set -l cache_file ~/.cache/fish_daily_quote.txt
+    set -l today (date "+%Y-%m-%d")
+    set -l quote ""
+    set -l author ""
 
-    # 如果缓存文件不存在，或者缓存日期不是今天，就重新获取
-    if not test -e $cache_file; or test (head -n1 $cache_file) != $today
-        # 拉取每日一言（ZenQuotes.io）
-        set json (curl -s https://zenquotes.io/api/today)
-
-        set quote (echo $json | jq -r '.[0].q')
-        set author (echo $json | jq -r '.[0].a')
-
-        echo $today >$cache_file
-        printf "%s\n%s\n" "$quote" "$author" >>$cache_file
+    # 先读取缓存，确保网络异常时也不会阻塞 shell 启动
+    if test -e $cache_file
+        set quote (sed -n '2p' $cache_file)
+        set author (sed -n '3p' $cache_file)
     end
 
-    # 读取缓存
-    set quote (sed -n '2p' $cache_file)
-    set author (sed -n '3p' $cache_file)
+    # 如果缓存文件不存在，或者缓存日期不是今天，就尝试重新获取
+    if type -q curl; and type -q jq
+        if not test -e $cache_file; or test (head -n1 $cache_file) != $today
+            # 拉取每日一言（ZenQuotes.io），限制超时避免终端卡在启动阶段
+            set -l json (curl -fsS --connect-timeout 2 --max-time 3 https://zenquotes.io/api/today 2>/dev/null)
 
-    # 计算长度
-    set len_quote (string length -- $quote)
-    set len_author (string length -- $author)
+            if test $status -eq 0; and test -n "$json"
+                set -l new_quote (printf "%s" "$json" | jq -r '.[0].q // empty' 2>/dev/null)
+                set -l new_author (printf "%s" "$json" | jq -r '.[0].a // empty' 2>/dev/null)
 
-    set_color magenta
-    printf "┌\n"
-    set_color blue
-    printf "%*s%s\n" (math 2) "" "$quote"
-    set_color brblack
-    printf "%*s— %s\n" (math $len_quote - $len_author) "" "$author"
-    set_color magenta
-    printf "%*s┘\n" (math $len_quote + 3) ""
+                if test -n "$new_quote"; and test -n "$new_author"
+                    mkdir -p (dirname $cache_file)
+                    echo $today >$cache_file
+                    printf "%s\n%s\n" "$new_quote" "$new_author" >>$cache_file
+                    set quote $new_quote
+                    set author $new_author
+                end
+            end
+        end
+    end
+
+    if test -n "$quote"; and test -n "$author"
+        # 计算长度
+        set -l len_quote (string length -- $quote)
+        set -l len_author (string length -- $author)
+
+        set_color magenta
+        printf "┌\n"
+        set_color blue
+        printf "%*s%s\n" (math 2) "" "$quote"
+        set_color brblack
+        printf "%*s— %s\n" (math $len_quote - $len_author) "" "$author"
+        set_color magenta
+        printf "%*s┘\n" (math $len_quote + 3) ""
+    end
+
     set_color blue
     echo "Hello bdbd!"
     set_color normal
@@ -40,7 +56,6 @@ end
 set -e MANPAGER
 set -e MANPAGEG
 if status is-interactive
-    batman --export-env | source
     # 交互模式下的别名
     alias ex="exit"
     alias cl="clear"
@@ -72,6 +87,9 @@ if status is-interactive
         zoxide init --cmd cd fish | source
     end
 
+    if type -q batman 
+        batman --export-env | source
+    end
     # 优化 thefuck 速度
     if type -q thefuck
         function fuck --wraps='thefuck' --description 'Correct previous command'
