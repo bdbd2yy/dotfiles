@@ -36,10 +36,10 @@
     "max-length": 20
   },
   "custom/polycat": {
-    "exec": "/usr/bin/polycat",
+    "exec": "/usr/bin/polycat -c ~/.config/waybar/polycat-config",
     // "return-type": "json",
     "on-click": "mpv $HOME/.local/share/sounds/Meow.ogg.mp3",
-    "format": "{}",
+    "format": "{text}",
   },
   "cava": {
     // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
@@ -95,7 +95,7 @@
     "escape": true,
     "interval": 5,
     "tooltip": false,
-    "exec": "playerctl metadata --format='{{title}} {{artist}}'",
+    "exec": "playerctl metadata --format='{{title}} - {{artist}}'",
     "on-click": "playerctl previous",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl play-pause",
@@ -186,9 +186,9 @@
     "format": " ",
   },
   "clock": {
-    "timezone": "Asis/China",
+    "timezone": "Asia/Shanghai",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": " {:%d/%m/%Y}",
+    "format-alt": " {:%Y-%m-%d %a}",
     "format": " {:%H:%M}"
   },
   //左键循环切换性能模式
@@ -313,12 +313,12 @@
   //   "tooltip": true
   // },
   "custom/codex-usage": {
-    "exec": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%'",
+    "exec": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%' --browser firefox",
     "return-type": "json",
     "interval": 120,
     "format": "{}",
     "tooltip": true,
-    "on-click": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%'",
+    "on-click": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%' --browser firefox",
     "signal": 9
   }
 }

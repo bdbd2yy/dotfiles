@@ -69,6 +69,13 @@ if status is-interactive
     abbr --add lg lazygit
     abbr --add ff fastfetch
     abbr --add oc opencode
+    abbr --add dev 'set dir $HOME/Programming/dev/; 
+    cd (echo $dir(string join \n (echo ./) (fd --type directory --max-depth 1 --base-directory $dir) | fzf)) 2>/dev/null; 
+    and nvim .'
+
+    abbr --add learn 'set dir $HOME/Programming/learn/; 
+    cd (echo $dir(string join \n (echo ./) (fd --type directory --max-depth 2 --base-directory $dir) | fzf)) 2>/dev/null; 
+    and nvim .'
     # if type -q swallow
     #   abbr --add code "swallow code --wait"
     #   abbr --add nv "swallow neovide"
