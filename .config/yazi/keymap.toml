@@ -39,9 +39,9 @@ run  = "escape"
 on   = "q"
 run  = "escape"
 
-[[mgr.prepend_keymap]]
-on = "<C-p>"
-run = "shell -- ripdrag %s -x 2>/dev/null &"
+# [[mgr.prepend_keymap]]
+# on = "<C-p>"
+# run = "shell -- ripdrag %s -x 2>/dev/null &"
 
 [[mgr.prepend_keymap]]
 on   = [ "c", "a", "a" ]
@@ -105,3 +105,7 @@ on   = "!"
 for  = "windows"
 run  = 'shell "powershell.exe" --block'
 desc = "Open PowerShell here"
+
+[[mgr.prepend_keymap]]
+on  = "y"
+run = [ "yank", 'plugin clipboard -- --action=copy' ]
