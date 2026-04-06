@@ -13,8 +13,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "colors-1.rasi"
-@import                          "fonts.rasi"
+@import                          "colors.rasi"
 
 /*****----- Main Window -----*****/
 window {
@@ -80,7 +79,6 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "Jetbrains Mono Nerd font 24";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
