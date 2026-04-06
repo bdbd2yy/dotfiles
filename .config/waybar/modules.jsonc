@@ -93,12 +93,13 @@
   "custom/music": {
     "format": "  {}",
     "escape": true,
-    "interval": 5,
-    "tooltip": false,
-    "exec": "playerctl metadata --format='{{title}} - {{artist}}'",
-    "on-click": "playerctl previous",
-    "on-click-right": "playerctl next",
-    "on-click-middle": "playerctl play-pause",
+    "interval": 1,
+    "return-type": "json",
+    "tooltip": true,
+    "exec": "${HOME}/.config/waybar/scripts/music_lyrics.py --columns 32 --scroll-speed 3.2 --scroll-delay 1.2",
+    "on-click": "${HOME}/.config/waybar/scripts/music_lyrics.py previous",
+    "on-click-right": "${HOME}/.config/waybar/scripts/music_lyrics.py next",
+    "on-click-middle": "${HOME}/.config/waybar/scripts/music_lyrics.py toggle",
     "max-length": 50
   },
   "mpris": {
