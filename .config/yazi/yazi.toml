@@ -58,6 +58,15 @@ play = [
 	{ run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
 	{ run = "mediainfo %s1 & pause", block = true, desc = "Show media info", for = "windows" },
 ]
+wps-word = [
+	{ run = "wps %s1", desc = "WPS Writer", for = "linux", orphan = true },
+]
+wps-sheet = [
+	{ run = "wps %s1", desc = "WPS Spreadsheets", for = "linux", orphan = true },
+]
+wps-slide = [
+	{ run = "wps %s1", desc = "WPS Presentation", for = "linux", orphan = true },
+]
 pdf-open = [
   { run = 'zathura "$@" &', desc = "Zathura", for = "unix"}
 ]
@@ -78,6 +87,9 @@ rules = [
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Media
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+	{ url = "*.{doc,docx,dot,dotx,rtf,odt,ott,wps}", use = [ "wps-word", "reveal" ] },
+	{ url = "*.{xls,xlsx,xlsm,xlsb,et,csv,ods,ots}", use = [ "wps-sheet", "reveal" ] },
+	{ url = "*.{ppt,pptx,pptm,pot,potx,dps,odp,otp}", use = [ "wps-slide", "reveal" ] },
 	# Archive
 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
 	# JSON
