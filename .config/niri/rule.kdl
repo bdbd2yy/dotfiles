@@ -53,11 +53,12 @@ recent-windows {
 
 // --------- floating windows -----------
 window-rule {
-    match app-id=r#"satty|dolphin|org.pulseaudio.pavucontrol|ark|blueman-manager|nm-connection-editor|org.gnome.Nautilus"#
+    match app-id=r#"dolphin|org.pulseaudio.pavucontrol|ark|blueman-manager|nm-connection-editor|org.gnome.Nautilus"#
     match app-id=r#".prismlauncher."# title=r#".控制台窗口."#
     match app-id=r#".kdeconnect.daemon$"# title=r#"^sending.kde connect daemon$"#
     match app-id="thunar"
     match app-id="steam" title="Friends List"
+    match title="satty" app-id="com.gabm.satty"
     match title="Steam 设置"
     match title="媒体查看器"
     // for qq and wechat

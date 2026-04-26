@@ -292,7 +292,7 @@ binds {
     // // clipcat
     // Mod+v { spawn-sh "clipcat-menu"; }
     Mod+v { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 -p 'clipboard'| cliphist decode | wl-copy"; }
-    Mod+Shift+S { spawn-sh "grim -g \"$(slurp -d)\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; } 
+    Mod+Shift+S { spawn-sh "grim -g \"$(slurp -d)\" -t ppm - | satty --filename - --output-filename ~/Pictures/screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; } 
     // Mod+Shift+S { spawn-sh "grim -g \"$(slurp -o -r -c '#ff0000ff')\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; }
     Mod+t { spawn-sh "rofi -show tool"; }
 
