@@ -53,12 +53,16 @@ function fish_greeting
     set_color normal
 end
 
-set -e MANPAGER
-set -e MANPAGEG
+# Keep non-interactive Fish free of inherited man-pager tweaks.
+# Interactive shells re-enable batman below when available.
+set -e MANPAGER MANROFFOPT
 if status is-interactive
     # 交互模式下的缩写
     abbr --add ex exit
-    abbr --add cl clear
+    abbr --add cl claude
+    abbr --add clr 'claude --resume'
+    abbr --add clc 'claude --continue'
+    abbr --add cld 'claude --dangerously-skip-permissions'
     abbr --add vi nvim
     abbr --add nv neovide
     abbr --add ls "eza --color=always --icons=always --git --group-directories-first"
@@ -94,6 +98,7 @@ if status is-interactive
         zoxide init --cmd cd fish | source
     end
 
+    # Let batman own man paging in interactive shells only.
     if type -q batman 
         batman --export-env | source
     end
@@ -108,13 +113,9 @@ if status is-interactive
     end
 end
 
-set -Ux EDITOR nvim
-
 bind \co accept-autosuggestion
 
 # add the -g flag to show the group belonged
 function ll --wraps=ls --description 'List contents of directory using long format'
     ls -lhg $argv
 end
-
-set -Ux LITELOADERQQNT_PROFILE ~/.config/LiteloaderQQNT/
