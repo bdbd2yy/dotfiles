@@ -102,7 +102,8 @@ window-rule {
 
 // --------- maximized windows -----------
 window-rule {
-    match app-id=r#"firefox-nightly|neovide|code|SiYuan|clash-verge|org.telegram.desktop|org.kde.kdeconnect.app|^jetbrains|com.obsproject.Studio|google-chrome"#
+    match app-id=r#"firefox|neovide|code|SiYuan|clash-verge|org.telegram.desktop|org.kde.kdeconnect.app|^jetbrains|com.obsproject.Studio|google-chrome"#
+    match app-id="obsidian"
     open-maximized true
 }
 
@@ -122,7 +123,7 @@ window-rule {
 
 // --------- windows on workspace -----------
 window-rule {
-    match app-id=r#"firefox-nightly"#
+    match app-id=r#"firefox"#
     open-on-workspace "browser"
 }
 window-rule {
