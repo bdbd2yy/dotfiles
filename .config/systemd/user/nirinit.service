@@ -1,0 +1,13 @@
+[Unit]
+Description=nirinit - niri session restore/save helper
+PartOf=niri.service
+After=niri.service
+
+[Service]
+Type=simple
+ExecStart=nirinit --save-interval 300
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=niri.service

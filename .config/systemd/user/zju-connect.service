@@ -1,0 +1,13 @@
+[Unit]
+Description=ZJU Connect VPN proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/zju-connect -config %h/.config/zju-connect/config.toml
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
