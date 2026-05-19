@@ -10,8 +10,10 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
-$cmd_duration\
 $rust\
+$golang\
+$fill\
+$cmd_duration\
 $line_break\
 $python\
 $character"""
@@ -51,9 +53,9 @@ crust = "#11111b"
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
-success_symbol = "[[󰄛](sky) \\$](bold green)"
-error_symbol = "[[󰄛](red) \\$](bold green)"
-vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+vimcmd_symbol = "[❮](subtext1)" # For use with zsh-vi-mode
 
 [directory]
 format = "[ $path]($style)[$read_only]($read_only_style) "
@@ -84,9 +86,12 @@ ignore_submodules = true
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
+[fill]
+symbol = " "
+
 [cmd_duration]
 format = "[$duration]($style) "
-style = "rosewater"
+style = "subtext1"
 
 [python]
 format = "[$virtualenv]($style) "
@@ -152,6 +157,8 @@ tag_symbol = '  '
 
 [golang]
 symbol = " "
+format = " [$symbol$version]($style)"
+style = "bold cyan"
 
 [gradle]
 symbol = " "
