@@ -463,6 +463,56 @@
   transition: 0.3s;
 }
 
+#power-profiles-daemon {
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-right: 1px;
+  margin-bottom: 5px;
+  padding-left: 8px;
+  padding-right: 12px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: @subtext0;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: @subtext0;
+  transition: 0.3s;
+}
+
+#power-profiles-daemon.performance {
+  color: @red;
+  border-color: @red;
+}
+
+#power-profiles-daemon.performance:hover {
+  background: @red;
+  color: #292c3c;
+  border-color: @red;
+}
+
+#power-profiles-daemon.balanced {
+  color: @subtext0;
+  border-color: @subtext0;
+}
+
+#power-profiles-daemon.balanced:hover {
+  background: @subtext0;
+  color: #292c3c;
+  border-color: @subtext0;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @green;
+  border-color: @green;
+}
+
+#power-profiles-daemon.power-saver:hover {
+  background: @green;
+  color: #292c3c;
+  border-color: @green;
+}
+
 #idle_inhibitor {
   margin-top: 5px;
   margin-left: 8px;
@@ -554,6 +604,7 @@
   margin-bottom: 5px;
   padding-right: 4px;
   background: #292c3c;
+  background-color: #292c3c;
   border-bottom: 3px;
   border-style: solid;
   border-color: @blue;
@@ -563,7 +614,19 @@
 
 #workspaces button {
   color: #a0aec0;
+  background: transparent;
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0 2px;
+  min-width: 0;
+  padding: 0 4px;
   transition: 0.3s;
+}
+
+#workspaces button label {
+  background: transparent;
+  background-color: transparent;
+  padding: 0;
 }
 /**/
 /* #workspaces button:hover { */
@@ -573,10 +636,14 @@
 
 /* 鼠标悬停效果 */
 #workspaces button:hover {
+    background: transparent;
+    background-color: transparent;
     color: #ffffff;      /* 悬停变白 */
 }
 
 #workspaces button.active {
+  background: transparent;
+  background-color: transparent;
   color: #89b4fa;
   transition: 0.3s;
 }
@@ -590,6 +657,7 @@
   padding-left: 8px;
   padding-right: 8px;
   background: @base;
+  background-color: @base;
   border-bottom: 3px;
   border-style: solid;
   border-color: @blue;
@@ -599,6 +667,7 @@
 
 #window:hover {
   background: @blue;
+  background-color: @blue;
   color: #292c3c;
 }
 

@@ -96,7 +96,7 @@
     "interval": 1,
     "return-type": "json",
     "tooltip": true,
-    "exec": "${HOME}/.config/waybar/scripts/music_lyrics.py --columns 32 --scroll-speed 3.2 --scroll-delay 1.2",
+    "exec": "${HOME}/.config/waybar/scripts/music_lyrics.py --columns 40 --scroll-speed 3.2 --scroll-delay 1.2",
     "on-click": "${HOME}/.config/waybar/scripts/music_lyrics.py previous",
     "on-click-right": "${HOME}/.config/waybar/scripts/music_lyrics.py next",
     "on-click-middle": "${HOME}/.config/waybar/scripts/music_lyrics.py toggle",
@@ -192,10 +192,10 @@
     "format-alt": " {:%Y-%m-%d %a}",
     "format": " {:%H:%M}"
   },
-  //左键循环切换性能模式
+  // 左键循环切换性能模式
   "power-profiles-daemon": {
     "format": "{icon}",
-    "tooltip-format": "Performance mode:{profile}",
+    "tooltip-format": "当前性能模式：{profile}\n---\n左键：切换性能模式",
     "tooltip": true,
     "format-icons": {
       "performance": "󱐋",
@@ -210,6 +210,7 @@
       "transition-right-to-left": false,
     },
     "modules": [
+      "power-profiles-daemon",
       "idle_inhibitor",
       "custom/wfrec",
       "custom/colorpicker"
@@ -316,7 +317,7 @@
   "custom/codex-usage": {
     "exec": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%' --browser firefox",
     "return-type": "json",
-    "interval": 120,
+    "interval": 360,
     "format": "{}",
     "tooltip": true,
     "on-click": "/usr/bin/codex-usage --waybar --format '{icon} {5h_pct}%-{7d_pct}%' --browser firefox",
