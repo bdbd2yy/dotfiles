@@ -1,4 +1,6 @@
 # 提示词设置
+set -g __fish_config_start_time (date +%s%3N)
+
 function fish_greeting
     # 缓存文件存放位置
     set -l cache_file ~/.cache/fish_daily_quote.txt
@@ -48,6 +50,16 @@ function fish_greeting
         printf "%*s┘\n" (math $len_quote + 3) ""
     end
 
+    if set -q __fish_config_start_time
+        set -l now (date +%s%3N)
+        set -l elapsed (math $now - $__fish_config_start_time)
+
+        set_color brblack
+        echo "Fish startup: "$elapsed"ms"
+        set_color normal
+        set -e __fish_config_start_time
+    end
+    echo ""
     set_color blue
     echo "Hello bdbd!"
     set_color normal
@@ -56,6 +68,23 @@ end
 # Keep non-interactive Fish free of inherited man-pager tweaks.
 # Interactive shells re-enable batman below when available.
 set -e MANPAGER MANROFFOPT
+
+# Keep Arch system commands ahead of Anaconda-provided shims.
+set -l anaconda_bin /opt/anaconda/bin
+set -l reordered_path
+for path_entry in $PATH
+    if test "$path_entry" != "$anaconda_bin"
+        set -a reordered_path "$path_entry"
+        if test "$path_entry" = /usr/bin
+            set -a reordered_path "$anaconda_bin"
+        end
+    end
+end
+if not contains -- "$anaconda_bin" $reordered_path
+    set -a reordered_path "$anaconda_bin"
+end
+set -gx PATH $reordered_path
+
 if status is-interactive
     # 交互模式下的缩写
     abbr --add ex exit
