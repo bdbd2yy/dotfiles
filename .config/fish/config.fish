@@ -88,20 +88,30 @@ set -gx PATH $reordered_path
 if status is-interactive
     # 交互模式下的缩写
     abbr --add ex exit
+
+    abbr --add cx codex
+    abbr --add oc opencode
     abbr --add cl claude
     abbr --add clr 'claude --resume'
     abbr --add clc 'claude --continue'
     abbr --add cld 'claude --dangerously-skip-permissions'
+
+    # hapi wrapper
+    abbr --add hacx 'hapi codex'
+    abbr --add haoc 'hapi opencode'
+    abbr --add hacld 'hapi claude --dangerously-skip-permissions'
+    abbr --add haclc 'hapi claude --continue'
+    abbr --add haclr 'hapi claude --resume'
+
     abbr --add vi nvim
     abbr --add nv neovide
-    abbr --add ls "eza --color=always --icons=always --git --group-directories-first"
-    abbr --add la "eza --color=always --icons=always --git --group-directories-first -lha"
+    abbr --add ls "eza --icons=auto -git --group-directories-first"
+    abbr --add la "eza --icons=auto --git --group-directories-first -lha"
     abbr --add tm tmux
     abbr --add tmm "tmux new -A -s main"
     abbr --add archwiki "xdg-open /usr/share/doc/arch-wiki-zh-cn/html/zh-cn/首页.html"
     abbr --add lg lazygit
     abbr --add ff fastfetch
-    abbr --add oc opencode
     abbr --add dev 'set dir $HOME/Programming/dev/; 
     cd (echo $dir(string join \n (echo ./) (fd --type directory --max-depth 1 --base-directory $dir) | fzf)) 2>/dev/null; 
     and nvim .'
