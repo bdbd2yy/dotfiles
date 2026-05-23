@@ -1,0 +1,4 @@
+[Unit]
+Description=HAPI Hub with FRP Client
+Requires=hapi-hub.service frpc-hapi.service
+After=hapi-hub.service frpc-hapi.service

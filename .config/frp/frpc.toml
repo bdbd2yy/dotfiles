@@ -1,0 +1,19 @@
+serverAddr = "47.112.190.71"
+serverPort = 7000
+
+auth.method = "token"
+auth.token = "5GVltC78dCaqscTv0fai8ngz5j6"
+
+[[proxies]]
+name = "mc-server"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 25565
+remotePort = 25565
+
+[[proxies]]
+name = "hapi"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3006
+remotePort = 13006

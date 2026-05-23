@@ -1,0 +1,16 @@
+[Unit]
+Description=HAPI Hub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment=HAPI_LISTEN_HOST=127.0.0.1
+Environment=HAPI_LISTEN_PORT=3006
+Environment=HAPI_PUBLIC_URL=http://47.112.190.71:13006
+ExecStart=/home/bdbd/.local/share/nvm/v22.22.0/bin/hapi hub
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=hapi-frp.target

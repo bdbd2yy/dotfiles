@@ -1,0 +1,14 @@
+[Unit]
+Description=FRP Client for HAPI
+After=hapi-hub.service network-online.target
+Wants=network-online.target
+Requires=hapi-hub.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/frpc -c %h/.config/frp/frpc.toml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=hapi-frp.target
