@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "5d5c480"
-hash = "e3260d0b1feded8c8e3ae3afa1169e30"
+rev = "58c4f4e"
+hash = "b95f898e6dc60b52edbc415952e14395"
 
 [[plugin.deps]]
 use = "atareao/convert"
@@ -10,8 +10,8 @@ hash = "1c0465351f2a344e842f065ab316f265"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "5d5c480"
-hash = "f0c8c378184d5f8abd1b095a443d336d"
+rev = "58c4f4e"
+hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
 use = "Deepak22903/kdeconnect-send"
@@ -20,25 +20,25 @@ hash = "869884767c2ef592bfb7f5764f8fcae3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "5d5c480"
-hash = "384464b6df8cb807425c521f8cd790f3"
+rev = "58c4f4e"
+hash = "45a533508a9840cc5a10cf6129f63e6a"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "aa4804b"
-hash = "a32da7bd1c8bcb4c61d770dd173ec7bd"
+rev = "f1cec0b"
+hash = "246c5b95a750a37351f81be79f04c380"
 
 [[plugin.deps]]
 use = "XYenon/clipboard"
-rev = "68b506d"
-hash = "f43576db983846d8d5b139ece1eda439"
+rev = "b25ec96"
+hash = "9f07d7de37a430833ef33b92c0bcf8cb"
 
 [[plugin.deps]]
 use = "KKV9/compress"
-rev = "e60e122"
-hash = "fbaf0adc8efc59555b748d36aab62d40"
+rev = "80e5268"
+hash = "868db729374b97871bc30b96d0e9061f"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "4770a34"
-hash = "7dfe41c9c3d9be76da8a844263d0bbed"
+rev = "20b47bf"
+hash = "ce320f877fe709b189433941aba747c4"

@@ -1,5 +1,4 @@
-[services.aliyun-vps]
-type     = "sftp"
+[sftp.aliyun-vps]
 host     = "47.112.190.71"
 user     = "bdbd"
 port     = 22

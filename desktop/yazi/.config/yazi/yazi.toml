@@ -39,8 +39,14 @@ open = [
 	{ run = 'start "" %s1',    desc = "Open", for = "windows", orphan = true },
 	{ run = "termux-open %s1", desc = "Open", for = "android" },
 ]
+imv = [
+	{ run = "imv %s", desc = "imv", for = "linux", orphan = true },
+]
 drawio = [
 	{ run = "drawio %s1", desc = "draw.io", for = "linux", orphan = true },
+]
+gtkwave = [
+	{ run = "gtkwave %s1", desc = "GTKWave", for = "linux", orphan = true },
 ]
 reveal = [
 	{ run = "xdg-open %d1",         desc = "Reveal", for = "linux" },
@@ -70,7 +76,7 @@ wps-slide = [
 	{ run = "wpp %s1", desc = "WPS Presentation", for = "linux", orphan = true },
 ]
 pdf-open = [
-  { run = 'zathura "$@" &', desc = "Zathura", for = "unix"}
+	{ run = "zathura %s", desc = "Zathura", for = "unix", orphan = true },
 ]
 download = [
 	{ run = "ya emit download --open %S", desc = "Download and open" },
@@ -80,8 +86,13 @@ download = [
 [open]
 # 内置规则包含通配 fallback，自定义规则必须放在它之前。
 prepend_rules = [
+	# Image
+	{ mime = "image/*", use = [ "imv", "reveal" ] },
 	# Draw.io
 	{ url = "*.drawio", use = [ "drawio", "reveal" ] },
+	# Waveform
+	{ url = "*.{vcd,fst,lxt,lxt2,vzt,ghw,gtkw}", use = [ "gtkwave", "reveal" ] },
+	{ url = "*.{vcd.gz,vcd.zip,ghw.gz,ghw.bz2}", use = [ "gtkwave", "reveal" ] },
   # PDF
   { mime = "application/pdf", use = [ "pdf-open" ] },
   # WPS
@@ -105,90 +116,17 @@ image_bound      = [ 10000, 10000 ]
 suppress_preload = false
 
 [plugin]
-fetchers = [
-	# Mimetype
-	{ group = "mime", url = "*/",         run = "mime.dir", prio = "high" },
-	{ group = "mime", url = "local://*",  run = "mime.local", prio = "high" },
-	{ group = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
+prepend_preloaders = [
+	# 用 mediainfo 替换图片、音视频的默认预加载器。
+	{ mime = "{audio,video,image}/*", run = "mediainfo" },
+	{ mime = "application/{subrip,postscript}", run = "mediainfo" },
 ]
-spotters = [
-	# Multi-file
-	{ mime = "multi/*", run = "multi" },
-	{ url = "*/", run = "folder" },
-	# Code
-	{ mime = "text/*", run = "code" },
-	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
-	# Image
-	{ mime = "image/{avif,hei?,jxl}", run = "magick" },
-	{ mime = "image/svg+xml", run = "svg" },
-	{ mime = "image/*", run = "image" },
-	# Video
-	{ mime = "video/*", run = "video" },
-	# Virtual file system
-	{ mime = "vfs/*", run = "vfs" },
-	# Error
-	{ mime = "null/*", run = "null" },
-	# Fallback
-	{ url = "*", run = "file" },
-]
-preloaders = [
-	# # Image
-	# { mime = "image/{avif,hei?,jxl}", run = "magick" },
-	# { mime = "image/svg+xml", run = "svg" },
-	# { mime = "image/*", run = "image" },
-	# # Video
-	# { mime = "video/*", run = "video" },
-  # Replace magick, image, video with mediainfo
-  { mime = "{audio,video,image}/*", run = "mediainfo" },
-  { mime = "application/subrip", run = "mediainfo" },
-  # Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
-  { mime = "application/postscript", run = "mediainfo" },
-	# PDF
-	{ mime = "application/pdf", run = "pdf" },
-	# Font
-	{ mime = "font/*", run = "font" },
-	{ mime = "application/ms-opentype", run = "font" },
-]
-previewers = [
+prepend_previewers = [
 	{ url = "*/", run = "piper -- eza -TL=2 --color=always --icons=always --group-directories-first --no-quotes \"$1\"" },
-  { url = "*.md", run  = "piper -- CLICOLOR_FORCE=1 glow -s=dark \"$1\"" },
-	# Code
-	{ mime = "text/*", run = "code" },
-	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
-	# JSON
-	{ mime = "application/{json,ndjson}", run = "json" },
-	# # Image
-	# { mime = "image/{avif,hei?,jxl}", run = "magick" },
-	# { mime = "image/svg+xml", run = "svg" },
-	# { mime = "image/*", run = "image" },
-	# # Video
-	# { mime = "video/*", run = "video" },
-  # Replace magick, image, video with mediainfo
-  { mime = "{audio,video,image}/*", run = "mediainfo" },
-  { mime = "application/subrip", run = "mediainfo" },
-  # Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
-  { mime = "application/postscript", run = "mediainfo" },
-	# PDF
-	{ mime = "application/pdf", run = "pdf" },
-	# Archive
-	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", run = "archive" },
-	{ mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}", run = "archive" },
-	{ url = "*.{AppImage,appimage}", run = "archive" },
-	# Virtual Disk / Disk Image
-	{ mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}", run = "archive" },
-	{ mime = "application/virtualbox-{vhd,vhdx}", run = "archive" },
-	{ url = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
-	# Font
-	{ mime = "font/*", run = "font" },
-	{ mime = "application/ms-opentype", run = "font" },
-	# Empty file
-	{ mime = "inode/empty", run = "empty" },
-	# Virtual file system
-	{ mime = "vfs/*", run = "vfs" },
-	# Error
-	{ mime = "null/*", run = "null" },
-	# Fallback
-	{ url = "*", run = "file" },
+	{ url = "*.md", run = "piper -- CLICOLOR_FORCE=1 glow -s=dark \"$1\"" },
+	# 用 mediainfo 替换图片、音视频的默认预览器。
+	{ mime = "{audio,video,image}/*", run = "mediainfo" },
+	{ mime = "application/{subrip,postscript}", run = "mediainfo" },
 ]
 
 [input]
