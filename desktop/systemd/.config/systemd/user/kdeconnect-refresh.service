@@ -3,4 +3,4 @@ Description=Auto refresh KDE Connect when devices not reachable
 
 [Service]
 Type=oneshot
-ExecStart=%h/Scripts/kc_auto_ref.sh
+ExecStart=%h/.local/bin/kc_auto_ref.sh

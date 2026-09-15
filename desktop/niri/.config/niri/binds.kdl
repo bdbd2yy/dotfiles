@@ -18,7 +18,8 @@ binds {
     Mod+Shift+Return hotkey-overlay-title="Open a Floating Terminal: ghostty" { spawn "ghostty" "--class=com.mitchellh.ghostty.floating"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
-    Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "$HOME/Scripts/lockforniri.sh"; }
+    Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "$HOME/.local/bin/lockforniri.sh"; }
+    Alt+Shift+L hotkey-overlay-title="Lock and Turn Off Monitors" { spawn-sh "$HOME/.local/bin/lockforniri.sh && sleep 1 && niri msg action power-off-monitors"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -291,16 +292,17 @@ binds {
     // moving the mouse or pressing any other key.
  
     Mod+v hotkey-overlay-title="Clipboard: rofi" { spawn "rofi" "-show" "clipboard" "-kb-delete-entry" "Shift+Delete" "-kb-custom-1" "Control+Shift+Delete"; }
-    Mod+Shift+S { spawn-sh "grim -g \"$(slurp -d)\" -t ppm - | satty --filename - --output-filename ~/Pictures/screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; } 
+    Mod+Shift+N hotkey-overlay-title="Notifications: SwayNC" { spawn "swaync-client" "-t" "-sw"; }
+    Mod+Shift+S hotkey-overlay-title="use mark-shot to capture screeen" { spawn "mark-shot"; } 
+    // Mod+Shift+S { spawn-sh "grim -g \"$(slurp -d)\" -t ppm - | satty --filename - --output-filename ~/Pictures/screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; } 
     // Mod+Shift+S { spawn-sh "grim -g \"$(slurp -o -r -c '#ff0000ff')\" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"; }
-    Mod+t { spawn-sh "rofi -show tool"; }
-    Mod+S hotkey-overlay-title="Quick SSH: rofi" { spawn-sh "rofi -show ssh"; }
+    Mod+t hotkey-overlay-title="Tools: rofi" { spawn "rofi" "-show" "tool"; }
+    Mod+S hotkey-overlay-title="Quick SSH: rofi" { spawn "rofi" "-show" "ssh"; }
 
-    Mod+m { spawn-sh "$HOME/Scripts/mpd.sh"; }
+    Mod+m { spawn-sh "$HOME/.local/bin/mpd.sh"; }
     // Alt+Tab { spawn "niri-switch"; }
     //
-    Mod+Shift+p { spawn-sh "$HOME/Scripts/powermenu.sh"; }
-    Mod+X { spawn-sh "$HOME/Scripts/translate.sh"; }
-    Mod+B {spawn-sh "$HOME/Scripts/bookmarks.sh";}
+    Mod+Shift+p hotkey-overlay-title="Session: rofi" { spawn-sh "$HOME/.config/rofi/scripts/powermenu.sh"; }
+    Mod+B {spawn-sh "$HOME/.local/bin/bookmarks.sh";}
     Mod+W { spawn "waypaper"; }
 }

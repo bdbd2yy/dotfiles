@@ -297,15 +297,15 @@ spawn-at-startup "fcitx5"
 // spawn-at-startup "clipcatd"
 spawn-at-startup  "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-sh-at-startup  "gnome-keyring-daemon --start --components=secrets"
-// spawn-sh-at-startup  "$HOME/Scripts/wallpaperloop.sh"
-spawn-sh-at-startup  "$HOME/Scripts/toggle-display.sh"
+// spawn-sh-at-startup  "$HOME/.local/bin/wallpaperloop.sh"
+spawn-sh-at-startup  "$HOME/.local/bin/toggle-display.sh"
 spawn-at-startup "swww-daemon"
 // swww-daemon for overview wallpaper
 spawn-at-startup "swww-daemon" "-n" "overview"
 // Restore the last wallpaper through waypaper; its post_command keeps the
 // overview wallpaper in sync as well.
 spawn-sh-at-startup "sleep 1 && waypaper --restore"
-// cliphist
+// Rofi 剪贴板需要独立维护 cliphist 历史。
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 // user xremap to remap keys
 spawn-sh-at-startup "xremap --device /dev/input/event21 --device /dev/input/event3 config.yml"

@@ -20,9 +20,9 @@ useful_tools_items[3]='set wallpaper'
 useful_tools_items[4]=' speed test'
 useful_tools_items[5]='Waybar modules'
 useful_tools_cmds[1]="$HOME/.config/polybar/launch.sh > /dev/null 2>&1"
-useful_tools_cmds[2]="$HOME/Scripts/restartwaybar.sh > /dev/null 2>&1"
-useful_tools_cmds[3]="coproc $HOME/Scripts/wallpaperloop.sh; show_useful_tools_menu"
-useful_tools_cmds[4]="coproc $HOME/Scripts/speedtest.sh"
+useful_tools_cmds[2]="$HOME/.local/bin/restartwaybar.sh > /dev/null 2>&1"
+useful_tools_cmds[3]="coproc $HOME/.local/bin/wallpaperloop.sh; show_useful_tools_menu"
+useful_tools_cmds[4]="coproc $HOME/.local/bin/speedtest.sh"
 useful_tools_cmds[5]='show_waybar_modules_menu'
 
 ##### TOGGLE_SERVER_MENU #####
@@ -83,7 +83,7 @@ show_waybar_modules_menu() {
 toggle_waybar_module() {
   module=${1#* }
   "$HOME/.config/waybar/scripts/toggle-module.sh" toggle "$module" > /dev/null
-  "$HOME/Scripts/restartwaybar.sh" > /dev/null 2>&1
+  "$HOME/.local/bin/restartwaybar.sh" > /dev/null 2>&1
   show_waybar_modules_menu
 }
 

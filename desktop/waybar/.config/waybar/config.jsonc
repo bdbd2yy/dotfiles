@@ -17,6 +17,7 @@
   ],
   "modules-right": [
     "tray",
+    "custom/notification",
     "custom/weather",
     "pulseaudio",
     "custom/network",

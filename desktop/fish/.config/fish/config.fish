@@ -84,10 +84,12 @@ if not contains -- "$anaconda_bin" $reordered_path
     set -a reordered_path "$anaconda_bin"
 end
 set -gx PATH $reordered_path
+set -gx LC_ALL en_US.UTF-8
 
 if status is-interactive
     # 交互模式下的缩写
     abbr --add ex exit
+    abbr --add hr herdr
 
     abbr --add cx codex
     abbr --add oc opencode
@@ -154,6 +156,8 @@ if status is-interactive
 end
 
 bind \co accept-autosuggestion
+
+bind shift-space 'commandline -i " "'
 
 # add the -g flag to show the group belonged
 function ll --wraps=ls --description 'List contents of directory using long format'

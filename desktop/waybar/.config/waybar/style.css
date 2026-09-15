@@ -66,7 +66,7 @@ menuitem:hover {
 #idle_inhibitor,
 #custom-wfrec,
 #custom-colorpicker,
-#custom-mako {
+#custom-notification {
   margin: 6px 4px;
   padding: 0 12px;
   border-radius: 11px;
@@ -135,6 +135,11 @@ menuitem:hover {
 #custom-polycat {
   padding: 0 9px;
   color: @flamingo;
+}
+
+#custom-polycat,
+#custom-polycat label {
+  font-family: "polycat";
 }
 
 #custom-polycat label {
@@ -455,6 +460,60 @@ menuitem:hover {
   color: @text;
   font-weight: bold;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
+}
+
+#custom-notification.none {
+  color: @subtext0;
+}
+
+#custom-notification label {
+  font-size: 18px;
+  min-width: 18px;
+  padding-bottom: 1px;
+}
+
+#custom-notification.notification {
+  color: @blue;
+}
+
+#custom-notification.dnd,
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification {
+  color: @yellow;
+}
+
+#custom-notification.inhibited,
+#custom-notification.inhibited-none,
+#custom-notification.inhibited-notification,
+#custom-notification.dnd-inhibited-none,
+#custom-notification.dnd-inhibited-notification {
+  color: @peach;
+}
+
+#custom-notification.none:hover {
+  background: @subtext0;
+  color: @base;
+}
+
+#custom-notification.notification:hover {
+  background: @blue;
+  color: @base;
+}
+
+#custom-notification.dnd:hover,
+#custom-notification.dnd-none:hover,
+#custom-notification.dnd-notification:hover {
+  background: @yellow;
+  color: @base;
+}
+
+#custom-notification.inhibited:hover,
+#custom-notification.inhibited-none:hover,
+#custom-notification.inhibited-notification:hover,
+#custom-notification.dnd-inhibited-none:hover,
+#custom-notification.dnd-inhibited-notification:hover {
+  background: @peach;
+  color: @base;
 }
 
 #custom-claude-usage:hover {

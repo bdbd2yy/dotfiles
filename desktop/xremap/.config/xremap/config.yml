@@ -1,10 +1,18 @@
 modmap:
-  - name: Global
+  - name: CapsLock -> Esc/Ctrl_L
     remap:
-      # CapsLock/Ctrl_L -> Esc
-      CapsLock: Esc
+      CapsLock:
+        alone: Esc
+        held: Ctrl_L
+        alone_timeout_millis: 200
       Esc: CapsLock
-
+  - name: Space -> Space/Shift_L
+    remap:
+      Space:
+        held: Shift_L
+        alone: Space
+        hold_threshold_millis: 300
+        free_hold: true
 keymap:
   - name: obsidian (modified from Default)
     application:
