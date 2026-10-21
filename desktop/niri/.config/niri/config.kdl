@@ -102,7 +102,7 @@ input {
 
 
 cursor {
-    xcursor-theme "Simp1e-Rose-Pine-Dawn"
+    xcursor-theme "XCursor-Pro-Red"
     xcursor-size 24
 
     hide-when-typing

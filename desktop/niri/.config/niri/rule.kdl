@@ -52,6 +52,28 @@ recent-windows {
 }
 
 // --------- floating windows -----------
+// 飞书主会场和共享工具条共用 Meeting，统一浮动并保留应用请求的尺寸。
+// 飞书聊天主窗口的 app-id 是 Feishu，不受此规则影响。
+window-rule {
+    match app-id="^Meeting$" title="^飞书会议$"
+    match app-id="^ShareScreenFloatingPanelWindowBase$"
+    open-floating true
+    open-focused false
+    on-xdg-activate "ignore"
+    default-column-width {}
+    default-window-height {}
+    opacity 1.0
+    default-floating-position x=20 y=0 relative-to="top-right"
+}
+window-rule {
+    match app-id="wemeetapp" title="wemeetapp"
+    open-focused false
+    on-xdg-activate "ignore"
+    default-column-width {}
+    default-window-height {}
+    opacity 1.0
+    default-floating-position x=20 y=0 relative-to="top-left"
+}
 window-rule {
     match app-id="com.mitchellh.ghostty.floating"
     open-floating true
