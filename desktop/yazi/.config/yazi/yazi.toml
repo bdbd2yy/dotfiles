@@ -86,6 +86,8 @@ download = [
 [open]
 # 内置规则包含通配 fallback，自定义规则必须放在它之前。
 prepend_rules = [
+	# Match trash before filename-based application rules.
+	{ mime = "trash/**", use = [ "open", "trash" ] },
 	# Image
 	{ mime = "image/*", use = [ "imv", "reveal" ] },
 	# Draw.io

@@ -6,3 +6,4 @@ Status:children_add(function(self)
 		return ""
 	end
 end, 3300, Status.LEFT)
+require("sshfs"):setup()

@@ -1,6 +1,6 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "58c4f4e"
+rev = "9166202"
 hash = "b95f898e6dc60b52edbc415952e14395"
 
 [[plugin.deps]]
@@ -10,7 +10,7 @@ hash = "1c0465351f2a344e842f065ab316f265"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "58c4f4e"
+rev = "9166202"
 hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
@@ -20,8 +20,8 @@ hash = "869884767c2ef592bfb7f5764f8fcae3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "58c4f4e"
-hash = "45a533508a9840cc5a10cf6129f63e6a"
+rev = "9166202"
+hash = "d1e0499cae5f3aeb628c267616d4b682"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
@@ -29,16 +29,21 @@ rev = "f1cec0b"
 hash = "246c5b95a750a37351f81be79f04c380"
 
 [[plugin.deps]]
-use = "XYenon/clipboard"
-rev = "b25ec96"
-hash = "9f07d7de37a430833ef33b92c0bcf8cb"
-
-[[plugin.deps]]
 use = "KKV9/compress"
 rev = "80e5268"
 hash = "868db729374b97871bc30b96d0e9061f"
 
+[[plugin.deps]]
+use = "grappas/wl-clipboard"
+rev = "8cc5524"
+hash = "5c587834c274dca9059092714ece1f18"
+
+[[plugin.deps]]
+use = "uhs-robert/sshfs"
+rev = "2a10f73"
+hash = "9bc5b0969bb16a9dc4b5cc0e62a25ce4"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "20b47bf"
+rev = "1183892"
 hash = "ce320f877fe709b189433941aba747c4"
